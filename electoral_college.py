@@ -3,7 +3,21 @@ import sys
 
 # Replace this comment with your implementation of get_winner().
 
-def get_winner:
+def get_winner(electors, outcomes):
+    R = 0
+    D = 0
+    for state in electors:
+        for winner in outcomes:
+            
+            if winner == 'R':
+                R += state.values()
+            elif winner == 'D':
+                D += state.values()
+    
+    if R > D:
+        return (f"R would win with {R} electoral votes.")
+    else:
+        return (f"D would win with {D} electoral votes.")
     
 
 
