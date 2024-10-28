@@ -4,18 +4,28 @@ import sys
 # Replace this comment with your implementation of get_winner().
 
 def get_winner(electors, outcomes):
+    """
+    Finds the winner of the election and how many votes the candidate get.
+    
+    Args: 
+    electors(dict): dict of states and the number of electors they have
+    outcomes(dict): dict of states and which winning party they are 'R' or 'D' 
+    
+    Return:
+    returns a tuble of which party won and how many votes they got.
+    """
     R = 0
     D = 0
     for state in electors: #iterate through the keys in electors
         for winner in outcomes: #iterate through the values in outcomes
             if state == winner:
                 if outcomes[winner] == 'R':
-                    R += electors[state]
+                    R += electors[state] #add the number of votes they have to their party
                 elif outcomes[winner] == 'D':
-                    D += electors[state]
+                    D += electors[state] #add the number of votes they have to their party
 
             
-    if R > D:
+    if R > D: #check to see which party won
         return (f"R would win with {R} electoral votes.")
     else:
         return (f"D would win with {D} electoral votes.")
