@@ -6,14 +6,15 @@ import sys
 def get_winner(electors, outcomes):
     R = 0
     D = 0
-    for state in electors:
-        for winner in outcomes:
+    for state in electors: #iterate through the keys in electors
+        for winner in outcomes: #iterate through the values in outcomes
+            if state == winner:
+                if outcomes[winner] == 'R':
+                    R += electors[state]
+                elif outcomes[winner] == 'D':
+                    D += electors[state]
+
             
-            if winner == 'R':
-                R += state.values()
-            elif winner == 'D':
-                D += state.values()
-    
     if R > D:
         return (f"R would win with {R} electoral votes.")
     else:
