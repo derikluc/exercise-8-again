@@ -16,21 +16,33 @@ def get_winner(electors, outcomes):
     """
     R = 0
     D = 0
-    for state in electors: #iterate through the keys in electors
-        for winner in outcomes: #iterate through the values in outcomes
+    
+    for state in outcomes: #iterate through the keys in outcomes
+        # since electors and outcomes share the same dictionary keys we can just reuse the state variable
+        # no need to interate through both dictionaries
+        
+        if outcomes[state] == 'R':
+            R += electors[state] #add the number of votes they have to their party
+        elif outcomes[state] == 'D':
+            D += electors[state] #add the number of votes they have to their party
+        
+        """ for winner in outcomes: #iterate through the values in outcomes
             if state == winner:
                 if outcomes[winner] == 'R':
                     R += electors[state] #add the number of votes they have to their party
                 elif outcomes[winner] == 'D':
-                    D += electors[state] #add the number of votes they have to their party
-
-            
-    if R > D: #check to see which party won
-        return (f"R would win with {R} electoral votes.")
-    else:
-        return (f"D would win with {D} electoral votes.")
+                    D += electors[state] #add the number of votes they have to their party """
     
+    if R > D: #check to see which party won
+        print(f"R would win with {R} electoral votes.")
+        result = ('R', R)
+        return result
+    else:
+        print(f"D would win with {D} electoral votes.")
+        result = ('D', D)
+        return result
 
+    
 
 
 def to_dict(filename, value_type=str):
