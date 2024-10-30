@@ -25,13 +25,6 @@ def get_winner(electors, outcomes):
             R += electors[state] #add the number of votes they have to their party
         elif outcomes[state] == 'D':
             D += electors[state] #add the number of votes they have to their party
-        
-        """ for winner in outcomes: #iterate through the values in outcomes
-            if state == winner:
-                if outcomes[winner] == 'R':
-                    R += electors[state] #add the number of votes they have to their party
-                elif outcomes[winner] == 'D':
-                    D += electors[state] #add the number of votes they have to their party """
     
     if R > D: #check to see which party won
         print(f"R would win with {R} electoral votes.")
